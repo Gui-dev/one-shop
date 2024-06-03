@@ -1,9 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
+import { registerRestaurant } from '@/api/register-restaurant'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -18,15 +20,22 @@ export const SignUp = () => {
   } = useForm<SignUpData>({
     resolver: zodResolver(signUpValidation),
   })
+  const { mutateAsync: signUpRestaurant } = useMutation({
+    mutationFn: registerRestaurant,
+  })
 
   const handleSignUp = async (data: SignUpData) => {
     try {
-      console.log(data)
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      await signUpRestaurant({
+        restaurantName: data.restaurant_name,
+        manager: data.manager_name,
+        email: data.email,
+        phone: data.phone,
+      })
       toast.success('Estabelecimento cadastrado com sucesso', {
         action: {
           label: 'Login',
-          onClick: () => navigation('/sign-in'),
+          onClick: () => navigation(`/sign-in?email=${data.email}`),
         },
       })
     } catch {
@@ -46,7 +55,7 @@ export const SignUp = () => {
             <h1 className="text-2xl font-semibold tracking-tighter">
               Criar conta grátis
             </h1>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-sm text-muted-foreground">
               Seja um parceiro e comece suas vendas
             </p>
           </div>
@@ -70,20 +79,20 @@ export const SignUp = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone">Seu celular</Label>
-              <Input id="phone" type="tel" {...register('phone')} />
+              <Label htmlFor="email">E-mail</Label>
+              <Input id="email" type="email" {...register('email')} />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">E-mail</Label>
-              <Input id="email" type="email" {...register('email')} />
+              <Label htmlFor="phone">Seu celular</Label>
+              <Input id="phone" type="tel" {...register('phone')} />
             </div>
 
             <Button className="w-full" disabled={isSubmitting}>
               Finalizar cadastro
             </Button>
 
-            <p className="text-muted-foreground px-6 text-center text-sm leading-relaxed">
+            <p className="px-6 text-center text-sm leading-relaxed text-muted-foreground">
               Ao continuar, você concorda com nossos{' '}
               <a
                 className="underline underline-offset-4"

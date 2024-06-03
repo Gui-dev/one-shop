@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "email": "bruce@email.com",
+      "password": "$2a$10$m6hO9f0Y6Rg4CM0CJxE8GuZnnZZA.Hrl.ebsIh1V9q7nIfudRiOyu",
+      "restaurantName": "Restaurante da Esquina",
+      "manager": "Bruce Wayne",
+      "phone": "11991919191",
+      "createdAt": "2024-06-03T07:34:48.031Z",
+      "id": 1
+    }
+  ]
+}
