@@ -39,7 +39,7 @@ export const SignIn = () => {
       })
       navigation('/')
     } catch (error) {
-      console.log('ERROR: ', error)
+      toast.error('Opssss - E-mail inválido')
     }
   }
 

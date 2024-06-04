@@ -6,4 +6,5 @@ interface ISignInBody {
 
 export const signIn = async ({ email }: ISignInBody) => {
   await api.post('/login', { email, password: '123456' })
+  // await api.post('/authenticate', { email })
 }

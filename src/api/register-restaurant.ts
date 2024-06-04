@@ -21,4 +21,11 @@ export const registerRestaurant = async ({
     phone,
     createdAt: new Date(),
   })
+
+  // await api.post('/restaurants', {
+  //   restaurantName,
+  //   manager,
+  //   email,
+  //   phone,
+  // })
 }

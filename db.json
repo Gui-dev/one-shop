@@ -9,5 +9,32 @@
       "createdAt": "2024-06-03T07:34:48.031Z",
       "id": 1
     }
-  ]
+  ],
+  "restaurants": [
+    {
+      "email": "bruce@email.com",
+      "restaurantName": "Restaurante da Esquina",
+      "manager": "Bruce Wayne",
+      "phone": "11991919191",
+      "createdAt": "2024-06-03T07:34:48.031Z",
+      "userId": 1
+    }
+  ],
+  "me": {
+    "id": 1,
+    "name": "Bruce Wayne",
+    "email": "bruce@email.com",
+    "phone": "11991919191",
+    "role": "manager",
+    "createdAT": "2024-06-03T07:34:48.031Z",
+    "updateAt": "2024-06-03T07:34:48.031Z"
+  },
+  "managed-restaurant": {
+    "id": 1,
+    "managerId": 1,
+    "name": "Restaurante da Esquina",
+    "description": "Descrição do manager",
+    "createdAT": "2024-06-03T07:34:48.031Z",
+    "updateAt": "2024-06-03T07:34:48.031Z"
+  }
 }
