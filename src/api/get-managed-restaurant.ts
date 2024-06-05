@@ -11,8 +11,11 @@ interface IGetManagedRestaurantResponse {
 
 export const getManagedRestaurant = async () => {
   const { data } = await api.get<IGetManagedRestaurantResponse>(
-    '/managed-restaurant',
+    '/managed-restaurant/1',
   )
+  // const { data } = await api.get<IGetManagedRestaurantResponse>(
+  //   '/managed-restaurant',
+  // )
 
   return data
 }
