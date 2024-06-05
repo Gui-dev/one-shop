@@ -1,6 +1,6 @@
 import { api } from '@/lib/api'
 
-interface IGetManagedRestaurantResponse {
+export interface IGetManagedRestaurantResponse {
   id: number
   managerId: string | null
   name: string

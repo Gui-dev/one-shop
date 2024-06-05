@@ -34,8 +34,8 @@
     {
       "id": 1,
       "managerId": 1,
-      "name": "Restaurante da Esquina 2",
-      "description": "Descrição do restaurante 2",
+      "name": "Restaurante da Esquina",
+      "description": "Descrição do restaurante",
       "createdAT": "2024-06-03T07:34:48.031Z",
       "updateAt": "2024-06-03T07:34:48.031Z"
     }
