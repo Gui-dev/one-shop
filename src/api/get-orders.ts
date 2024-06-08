@@ -33,7 +33,7 @@ export const getOrders = async ({ pageIndex }: IGetOrderQuery) => {
   const { data, headers } = await api.get<IGetOrdersResponse[]>('/orders', {
     params: {
       _page: pageIndex,
-      _limit: 5,
+      _limit: 2,
       _sort: 'createdAt',
       _order: 'desc',
     },
@@ -42,8 +42,8 @@ export const getOrders = async ({ pageIndex }: IGetOrderQuery) => {
   return {
     orders: data,
     meta: {
-      _page: 1,
-      _limit: 5,
+      page: Number(pageIndex),
+      limit: 2,
       totalCount: Number(headers['x-total-count']),
     },
   }
