@@ -2,6 +2,9 @@ import { api } from '@/lib/api'
 
 export interface IGetOrderQuery {
   pageIndex?: number | null
+  orderId?: string | null
+  customerName?: string | null
+  status?: string | null
 }
 
 export interface IGetOrdersResponse {
@@ -29,13 +32,21 @@ export interface IGetOrdersResponse {
 }
 */
 
-export const getOrders = async ({ pageIndex }: IGetOrderQuery) => {
+export const getOrders = async ({
+  pageIndex,
+  orderId,
+  customerName,
+  status,
+}: IGetOrderQuery) => {
   const { data, headers } = await api.get<IGetOrdersResponse[]>('/orders', {
     params: {
       _page: pageIndex,
       _limit: 2,
       _sort: 'createdAt',
       _order: 'desc',
+      orderId,
+      customerName,
+      status,
     },
   })
 

@@ -22,10 +22,19 @@ export const Orders = () => {
   //   .number()
   //   .transform((page) => page - 1)
   //   .parse(searchParams.get('_page') ?? '0')
+  const orderId = searchParams.get('orderId')
+  const customerName = searchParams.get('customerName')
+  const status = searchParams.get('status')
   const pageIndex = z.coerce.number().parse(searchParams.get('_page') ?? '1')
   const { data: result } = useQuery({
-    queryKey: ['orders', pageIndex],
-    queryFn: () => getOrders({ pageIndex }),
+    queryKey: ['orders', pageIndex, orderId, customerName, status],
+    queryFn: () =>
+      getOrders({
+        pageIndex,
+        orderId,
+        customerName,
+        status: status === 'all' ? null : status,
+      }),
   })
 
   const handlePaginate = (pageIndex: number) => {
@@ -35,8 +44,6 @@ export const Orders = () => {
       return state
     })
   }
-
-  console.log(pageIndex)
 
   return (
     <>
