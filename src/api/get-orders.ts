@@ -8,9 +8,9 @@ export interface IGetOrderQuery {
 }
 
 export interface IGetOrdersResponse {
-  orderId: string
+  id: string
   customerName: string
-  total: number
+  totalInCents: number
   status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
   createdAt: string
 }
@@ -22,7 +22,7 @@ export interface IGetOrdersResponse {
     customerName: string
     total: number
     status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
-    createdAt: Date | null
+    createdAt: string
   }[]
   meta: {
     pageIndex: number

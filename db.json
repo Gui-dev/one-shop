@@ -47,46 +47,196 @@
   ],
   "orders": [
     {
-      "orderId": 1,
+      "id": 1,
       "customerName": "Clark Kent",
-      "total": 129,
+      "email": "clark@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
       "status": "pending",
-      "createdAt": "2024-06-07T07:34:48.031Z"
+      "createdAt": "2024-06-07T07:34:48.031Z",
+      "customer": {
+        "name": "Clark Kent",
+        "email": "clark@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
     },
     {
-      "orderId": 2,
+      "id": 2,
       "customerName": "Barry Allen",
-      "total": 119,
-      "status": "canceled",
-      "createdAt": "2024-06-06T07:34:48.031Z"
-    },
-    {
-      "orderId": 3,
-      "customerName": "Arthur Curry",
-      "total": 47,
-      "status": "delivered",
-      "createdAt": "2024-06-04T07:34:48.031Z"
-    },
-    {
-      "orderId": 4,
-      "customerName": "Tony Stark",
-      "total": 189,
-      "status": "processing",
-      "createdAt": "2024-06-05T07:34:48.031Z"
-    },
-    {
-      "orderId": 5,
-      "customerName": "Peter Park",
-      "total": 39,
+      "email": "barry@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
       "status": "pending",
-      "createdAt": "2024-06-06T07:34:48.031Z"
+      "createdAt": "2024-06-06T07:34:48.031Z",
+      "customer": {
+        "name": "Barry Allen",
+        "email": "barry@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
     },
     {
-      "orderId": 6,
+      "id": 3,
+      "customerName": "Arthur Curry",
+      "email": "arthur@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
+      "status": "delivered",
+      "createdAt": "2024-06-04T07:34:48.031Z",
+      "customer": {
+        "name": "Arthur Curry",
+        "email": "arthur@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "customerName": "Tony Stark",
+      "email": "tony@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
+      "status": "processing",
+      "createdAt": "2024-06-05T07:34:48.031Z",
+      "customer": {
+        "name": "Tony Stark",
+        "email": "tony@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "customerName": "Peter Park",
+      "email": "peter@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
+      "status": "pending",
+      "createdAt": "2024-06-06T07:34:48.031Z",
+      "customer": {
+        "name": "Peter Park",
+        "email": "peter@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
       "customerName": "Miles Morales",
-      "total": 24,
+      "email": "miles@email.com",
+      "phone": "11991919191",
+      "totalInCents": 127,
       "status": "delivering",
-      "createdAt": "2024-06-06T07:34:48.031Z"
+      "createdAt": "2024-06-06T07:34:48.031Z",
+      "customer": {
+        "name": "Miles Morales",
+        "email": "miles@email.com",
+        "phone": "11991919191"
+      },
+      "orderItems": [
+        {
+          "id": 1,
+          "priceInCents": 39,
+          "quantity": 2,
+          "product": {
+            "name": "Pizza de Mussarella"
+          }
+        },
+        {
+          "id": 2,
+          "priceInCents": 49,
+          "quantity": 1,
+          "product": {
+            "name": "Pizza de 4 Queijos"
+          }
+        }
+      ]
     }
   ]
 }

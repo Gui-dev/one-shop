@@ -1,4 +1,4 @@
-type OrderStatusProps =
+export type OrderStatusProps =
   | 'pending'
   | 'canceled'
   | 'processing'
