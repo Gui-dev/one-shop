@@ -52,7 +52,7 @@
       "email": "clark@email.com",
       "phone": "11991919191",
       "totalInCents": 127,
-      "status": "canceled",
+      "status": "pending",
       "createdAt": "2024-06-07T07:34:48.031Z",
       "customer": {
         "name": "Clark Kent",
