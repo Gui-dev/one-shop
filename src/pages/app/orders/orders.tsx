@@ -44,7 +44,7 @@ export const Orders = () => {
       return state
     })
   }
-
+  console.log('ORDERS: ', result)
   return (
     <>
       <Helmet title="Pedidos" />

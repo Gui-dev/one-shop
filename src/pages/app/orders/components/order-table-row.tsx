@@ -1,22 +1,55 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { ArrowRight, Search, X } from 'lucide-react'
 import { useState } from 'react'
 
-import { IGetOrdersResponse } from '@/api/get-orders'
+import { cancelOrder } from '@/api/cancel-order'
+import { IGetOrdersResponse, IOrderParams } from '@/api/get-orders'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import { TableCell, TableRow } from '@/components/ui/table'
 
-import { OrderStatus } from './order-status'
+import { OrderStatus, OrderStatusProps } from './order-status'
 import { OrderDetail } from './orders-details'
 
 interface IOrderTableRow {
-  order: IGetOrdersResponse
+  order: IOrderParams
 }
 
 export const OrderTableRow = ({ order }: IOrderTableRow) => {
   const [iseDetailsOpen, setIsDetailsOpen] = useState(false)
+  const queryClient = useQueryClient()
+
+  const updateOrderStatusOnCache = (
+    orderId: string,
+    status: OrderStatusProps,
+  ) => {
+    const ordersListCache = queryClient.getQueriesData<IGetOrdersResponse>({
+      queryKey: ['orders'],
+    })
+    ordersListCache.forEach(([cacheKey, cacheData]) => {
+      if (!cacheData) {
+        return
+      }
+      queryClient.setQueryData<IGetOrdersResponse>(cacheKey, {
+        ...cacheData,
+        orders: cacheData.orders.map((order) => {
+          if (order.id === orderId) {
+            return { ...order, status }
+          }
+          return order
+        }),
+      })
+    })
+  }
+
+  const { mutateAsync: cancelOrderFn } = useMutation({
+    mutationFn: cancelOrder,
+    async onSuccess(_, { orderId }) {
+      updateOrderStatusOnCache(orderId, 'canceled')
+    },
+  })
 
   return (
     <TableRow>
@@ -57,7 +90,13 @@ export const OrderTableRow = ({ order }: IOrderTableRow) => {
         </Button>
       </TableCell>
       <TableCell>
-        <Button variant="ghost" size="xs" title="Cancelar pedido">
+        <Button
+          variant="ghost"
+          size="xs"
+          title="Cancelar pedido"
+          disabled={!['pending', 'processing'].includes(order.status)}
+          onClick={() => cancelOrderFn({ orderId: order.id })}
+        >
           <X className="mr-2 h-3 w-3" />
           Cancelar
         </Button>

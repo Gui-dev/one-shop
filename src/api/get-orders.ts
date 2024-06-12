@@ -7,12 +7,21 @@ export interface IGetOrderQuery {
   status?: string | null
 }
 
-export interface IGetOrdersResponse {
+export interface IOrderParams {
   id: string
   customerName: string
   totalInCents: number
   status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
   createdAt: string
+}
+
+export interface IGetOrdersResponse {
+  orders: IOrderParams[]
+  meta: {
+    page: number
+    limit: number
+    totalCount: number
+  }
 }
 
 /*
@@ -38,7 +47,7 @@ export const getOrders = async ({
   customerName,
   status,
 }: IGetOrderQuery) => {
-  const { data, headers } = await api.get<IGetOrdersResponse[]>('/orders', {
+  const { data, headers } = await api.get<IOrderParams[]>('/orders', {
     params: {
       _page: pageIndex,
       _limit: 2,
