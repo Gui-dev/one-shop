@@ -1,0 +1,6 @@
+{
+  "/metrics/day-orders-amount": "/metricsDayOrdersAmount",
+  "/metrics/month-orders-amount": "/metricsMonthOrdersAmount",
+  "/metrics/month-canceled-orders-amount": "/metricsMonthCanceledOrdersAmount",
+  "/metrics/month-receipt": "/metricsMonthReceipt"
+}

@@ -238,5 +238,21 @@
         }
       ]
     }
-  ]
+  ],
+  "metricsDayOrdersAmount": {
+    "amount": 120,
+    "diffFromYesterday": 2
+  },
+  "metricsMonthOrdersAmount": {
+    "amount": 730,
+    "diffFromLastMonth": 3
+  },
+  "metricsMonthCanceledOrdersAmount": {
+    "amount": 20,
+    "diffFromLastMonth": -1.5
+  },
+  "metricsMonthReceipt": {
+    "receipt": 1248.60,
+    "diffFromLastMonth": 2.5
+  }
 }

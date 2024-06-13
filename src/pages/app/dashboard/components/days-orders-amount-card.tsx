@@ -34,7 +34,7 @@ export const DaysOrdersAmountCard = () => {
               {dayOrdersAmount.diffFromYesterday < 0 && (
                 <>
                   <span className="text-rose-500 dark:text-rose-400">
-                    -{dayOrdersAmount.diffFromYesterday}%
+                    {dayOrdersAmount.diffFromYesterday}%
                   </span>{' '}
                   em relação à ontem
                 </>
