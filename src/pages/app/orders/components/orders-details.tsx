@@ -19,6 +19,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { OrderDetailsSkeleton } from './order-details-skeleton'
 import { OrderStatus } from './order-status'
 
 interface IOrderDetail {
@@ -140,6 +141,7 @@ export const OrderDetail = ({ orderId, open }: IOrderDetail) => {
           </Table>
         </div>
       )}
+      {!order && <OrderDetailsSkeleton />}
     </DialogContent>
   )
 }
