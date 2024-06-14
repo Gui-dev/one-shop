@@ -3,5 +3,6 @@
   "/metrics/month-orders-amount": "/metricsMonthOrdersAmount",
   "/metrics/month-canceled-orders-amount": "/metricsMonthCanceledOrdersAmount",
   "/metrics/month-receipt": "/metricsMonthReceipt",
-  "/metrics/popular-products": "/metricsPopularProducts"
+  "/metrics/popular-products": "/metricsPopularProducts",
+  "/metrics/daily-receipt-in-period": "/metricsDailyReceiptInPeriod"
 }

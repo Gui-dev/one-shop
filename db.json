@@ -276,5 +276,35 @@
       "product": "Portuguesa",
       "amount": 30
     }
+  ],
+  "metricsDailyReceiptInPeriod": [
+    {
+      "date": "16/12",
+      "receipt": 1200
+    },
+    {
+      "date": "17/12",
+      "receipt": 800
+    },
+    {
+      "date": "18/12",
+      "receipt": 900
+    },
+    {
+      "date": "19/12",
+      "receipt": 400
+    },
+    {
+      "date": "20/12",
+      "receipt": 2300
+    },
+    {
+      "date": "21/12",
+      "receipt": 840
+    },
+    {
+      "date": "22/12",
+      "receipt": 640
+    }
   ]
 }
