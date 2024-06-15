@@ -20,4 +20,13 @@ describe('<OrderStatus />', () => {
     expect(statusText).toBeInTheDocument()
     expect(badgeElement).toHaveClass('bg-rose-500')
   })
+
+  it('should display the right text when order status is delivering', () => {
+    const wrapper = render(<OrderStatus status="delivering" />)
+
+    const statusText = wrapper.getByText('Em entrega')
+    const badgeElement = wrapper.getByTestId('badge')
+    expect(statusText).toBeInTheDocument()
+    expect(badgeElement).toHaveClass('bg-amber-500')
+  })
 })
