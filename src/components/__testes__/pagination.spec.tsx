@@ -57,4 +57,23 @@ describe('<Pagination />', () => {
 
     expect(onPageChangeCallback).toHaveBeenCalledWith(4)
   })
+
+  it('should be able to navigate to the first page', async () => {
+    const user = userEvent.setup()
+    const wrapper = render(
+      <Pagination
+        page_index={5}
+        per_page={10}
+        total_count={200}
+        onPageChange={onPageChangeCallback}
+      />,
+    )
+
+    const nextPageButton = wrapper.getByRole('button', {
+      name: 'Primeira página',
+    })
+    await user.click(nextPageButton)
+
+    expect(onPageChangeCallback).toHaveBeenCalledWith(1)
+  })
 })
