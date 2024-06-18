@@ -6,13 +6,16 @@ import { Pagination } from '../pagination'
 const onPageChangeCallback = vi.fn()
 
 describe('<Pagination />', () => {
+  beforeEach(() => {
+    onPageChangeCallback.mockClear()
+  })
   it('should display the right amount of pages and results', () => {
     const wrapper = render(
       <Pagination
         page_index={1}
         per_page={10}
         total_count={200}
-        onPageChange={() => {}}
+        onPageChange={onPageChangeCallback}
       />,
     )
 
@@ -75,5 +78,24 @@ describe('<Pagination />', () => {
     await user.click(nextPageButton)
 
     expect(onPageChangeCallback).toHaveBeenCalledWith(1)
+  })
+
+  it('should be able to navigate to the last page', async () => {
+    const user = userEvent.setup()
+    const wrapper = render(
+      <Pagination
+        page_index={1}
+        per_page={10}
+        total_count={200}
+        onPageChange={onPageChangeCallback}
+      />,
+    )
+
+    const nextPageButton = wrapper.getByRole('button', {
+      name: 'Última página',
+    })
+    await user.click(nextPageButton)
+
+    expect(onPageChangeCallback).toHaveBeenCalledWith(20)
   })
 })
