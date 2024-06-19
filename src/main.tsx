@@ -3,10 +3,13 @@ import './styles/globals.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { enableMSW } from './api/mocks'
 import { App } from './app'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+enableMSW().then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  )
+})
