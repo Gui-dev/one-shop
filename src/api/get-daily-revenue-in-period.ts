@@ -11,22 +11,23 @@ export type IGetDailyRevenueInPeriodResponse = {
   receipt: number
 }[]
 
-export const getDailyRevenueInPeriod = async (
-  _props: IGetDailyRevenueInPeriod,
-) => {
-  const { data } = await api.get<IGetDailyRevenueInPeriodResponse>(
-    '/metrics/daily-receipt-in-period',
-  )
-
+export const getDailyRevenueInPeriod = async ({
+  from,
+  to,
+}: IGetDailyRevenueInPeriod) => {
   // const { data } = await api.get<IGetDailyRevenueInPeriodResponse>(
   //   '/metrics/daily-receipt-in-period',
-  //   {
-  //     params: {
-  //       from
-  //       to,
-  //     },
-  //   },
   // )
+
+  const { data } = await api.get<IGetDailyRevenueInPeriodResponse>(
+    '/metrics/daily-receipt-in-period',
+    {
+      params: {
+        from,
+        to,
+      },
+    },
+  )
 
   return data
 }
