@@ -1,6 +1,6 @@
 import { api } from '@/lib/api'
 
-interface IRegisterRestaurantBody {
+export interface IRegisterRestaurantBody {
   restaurantName: string
   manager: string
   email: string
@@ -13,19 +13,19 @@ export const registerRestaurant = async ({
   email,
   phone,
 }: IRegisterRestaurantBody) => {
-  await api.post('/users', {
-    restaurantName,
-    manager,
-    email,
-    password: '123456',
-    phone,
-    createdAt: new Date(),
-  })
-
-  // await api.post('/restaurants', {
+  // await api.post('/users', {
   //   restaurantName,
   //   manager,
   //   email,
+  //   password: '123456',
   //   phone,
+  //   createdAt: new Date(),
   // })
+
+  await api.post('/restaurants', {
+    restaurantName,
+    manager,
+    email,
+    phone,
+  })
 }
