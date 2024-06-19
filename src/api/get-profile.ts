@@ -1,6 +1,6 @@
 import { api } from '@/lib/api'
 
-interface IGetProfileResponse {
+export interface IGetProfileResponse {
   id: number
   name: string
   email: string
