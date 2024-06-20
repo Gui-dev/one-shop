@@ -5,8 +5,8 @@ export interface IApproveOrderParams {
 }
 
 export const approveOrder = async ({ orderId }: IApproveOrderParams) => {
-  await api.patch(`/orders/${orderId}`, {
-    status: 'processing',
-  })
-  // await api.patch(`/orders/${orderId}/approve`)
+  // await api.patch(`/orders/${orderId}`, {
+  //   status: 'processing',
+  // })
+  await api.patch(`/orders/${orderId}/approve`)
 }

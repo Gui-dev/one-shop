@@ -5,8 +5,8 @@ export interface ICancelOrderParams {
 }
 
 export const cancelOrder = async ({ orderId }: ICancelOrderParams) => {
-  await api.patch(`/orders/${orderId}`, {
-    status: 'canceled',
-  })
-  // await api.patch(`/orders/${orderId}/cancel`)
+  // await api.patch(`/orders/${orderId}`, {
+  //   status: 'canceled',
+  // })
+  await api.patch(`/orders/${orderId}/cancel`)
 }

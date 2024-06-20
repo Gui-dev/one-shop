@@ -5,8 +5,8 @@ export interface IDeliverOrderParams {
 }
 
 export const deliverOrder = async ({ orderId }: IDeliverOrderParams) => {
-  await api.patch(`/orders/${orderId}`, {
-    status: 'delivered',
-  })
-  // await api.patch(`/orders/${orderId}/deliver`)
+  // await api.patch(`/orders/${orderId}`, {
+  //   status: 'delivered',
+  // })
+  await api.patch(`/orders/${orderId}/deliver`)
 }

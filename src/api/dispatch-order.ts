@@ -5,8 +5,8 @@ export interface IDispatchOrderParams {
 }
 
 export const dispatchOrder = async ({ orderId }: IDispatchOrderParams) => {
-  await api.patch(`/orders/${orderId}`, {
-    status: 'delivering',
-  })
-  // await api.patch(`/orders/${orderId}/dispatch`)
+  // await api.patch(`/orders/${orderId}`, {
+  //   status: 'delivering',
+  // })
+  await api.patch(`/orders/${orderId}/dispatch`)
 }
