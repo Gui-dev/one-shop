@@ -19,14 +19,14 @@ import { OrderTableSkeleton } from './components/order-table-skeleton'
 
 export const Orders = () => {
   const [searchParams, setSearchParams] = useSearchParams()
-  // const pageIndex = z.coerce
-  //   .number()
-  //   .transform((page) => page - 1)
-  //   .parse(searchParams.get('_page') ?? '0')
+  const pageIndex = z.coerce
+    .number()
+    .transform((page) => page - 1)
+    .parse(searchParams.get('page') ?? '1')
   const orderId = searchParams.get('orderId')
   const customerName = searchParams.get('customerName')
   const status = searchParams.get('status')
-  const pageIndex = z.coerce.number().parse(searchParams.get('_page') ?? '1')
+  // const pageIndex = z.coerce.number().parse(searchParams.get('_page') ?? '1')
   const { data: result, isLoading: isLoadingOrders } = useQuery({
     queryKey: ['orders', pageIndex, orderId, customerName, status],
     queryFn: () =>
@@ -40,12 +40,12 @@ export const Orders = () => {
 
   const handlePaginate = (pageIndex: number) => {
     setSearchParams((state) => {
-      state.set('_page', String(pageIndex))
-      // state.set('_page', String(pageIndex + 1))
+      // state.set('_page', String(pageIndex))
+      state.set('page', String(pageIndex + 1))
       return state
     })
   }
-  console.log('ORDERS: ', result)
+
   return (
     <>
       <Helmet title="Pedidos" />
@@ -80,9 +80,9 @@ export const Orders = () => {
           </div>
           {result && (
             <Pagination
-              page_index={result.meta.page}
+              page_index={result.meta.pageIndex}
               total_count={result.meta.totalCount}
-              per_page={result.meta.limit}
+              per_page={result.meta.perPage}
               onPageChange={handlePaginate}
             />
           )}

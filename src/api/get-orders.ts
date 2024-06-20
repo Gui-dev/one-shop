@@ -18,9 +18,9 @@ export interface IOrderParams {
 export interface IGetOrdersResponse {
   orders: IOrderParams[]
   meta: {
-    page: number
-    limit: number
+    pageIndex: number
     totalCount: number
+    perPage: number
   }
 }
 
@@ -47,7 +47,7 @@ export const getOrders = async ({
   customerName,
   status,
 }: IGetOrderQuery) => {
-  const { data, headers } = await api.get<IOrderParams[]>('/orders', {
+  /* const { data, headers } = await api.get<IOrderParams[]>('/orders', {
     params: {
       _page: pageIndex,
       _limit: 2,
@@ -67,14 +67,15 @@ export const getOrders = async ({
       totalCount: Number(headers['x-total-count']),
     },
   }
-
-  /*
-    const { data } = await api.get<IGetOrdersResponse>('/orders', {
-      params: {
-        pageIndex
-      },
-    })
-
-    return data
   */
+  const { data } = await api.get<IGetOrdersResponse>('/orders', {
+    params: {
+      pageIndex,
+      customerName,
+      orderId,
+      status,
+    },
+  })
+
+  return data
 }
