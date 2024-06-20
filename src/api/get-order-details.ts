@@ -10,7 +10,7 @@ export interface IGetOrderDetailsResponse {
   customerName: string
   email: string
   phone: string
-  totalInCents: 129
+  totalInCents: number
   status: OrderStatusProps
   createdAt: string
   customer: {
