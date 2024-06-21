@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 
 import { signIn } from '@/api/sign-in'
@@ -12,7 +12,6 @@ import { Label } from '@/components/ui/label'
 import { SignInData, signInValidation } from '@/validations/signin-validation'
 
 export const SignIn = () => {
-  const navigation = useNavigate()
   const [searchParams] = useSearchParams()
   const {
     formState: { isSubmitting },
@@ -37,7 +36,6 @@ export const SignIn = () => {
           onClick: () => handleSignIn(data),
         },
       })
-      navigation('/')
     } catch (error) {
       toast.error('Opssss - E-mail inválido')
     }
