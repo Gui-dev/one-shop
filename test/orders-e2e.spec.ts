@@ -66,3 +66,14 @@ test('filter by order id', async ({ page }) => {
   ).toBeVisible()
   await page.waitForTimeout(1000)
 })
+
+test('filter by customer name', async ({ page }) => {
+  await page.goto('/orders', { waitUntil: 'networkidle' })
+  await page.getByPlaceholder('Nome do cliente').fill('Customer 11')
+  await page.getByRole('button', { name: 'Filtrar resultados' }).click()
+
+  expect(
+    page.getByRole('cell', { name: 'Customer 11', exact: true }),
+  ).toBeVisible()
+  await page.waitForTimeout(1000)
+})
