@@ -19,7 +19,7 @@ test('sign in with wrong credentials', async ({ page }) => {
 
   const toast = page.getByText('Opssss - E-mail inválido')
 
-  await await expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 })
 
 test('navigate to new restaurant page', async ({ page }) => {
